@@ -9,7 +9,7 @@ env:
 jobs:
   test:
     env:
-      MONGODB_CLUSTER_ADDRESS: cluster0.ezbuktp.mongodb.ne
+      MONGODB_CLUSTER_ADDRESS: cluster0.ezbuktp.mongodb.net
       MONGODB_USERNAME: heshanskumarasinghe
       MONGODB_PASSWORD: hYcgqwhYKrhGn6Dn
       PORT: 8080
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run server
-        run: npm start & npx wait-on http://[::1]:$PORT # interpolate the environment variable 
+        run: npm start & npx wait-on http://127.0.0.1:$PORT # interpolate the environment variable 
       - name: Run tests
         run: npm test
       - name: Output information

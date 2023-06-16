@@ -10,17 +10,15 @@ const client = new MongoClient(uri);
 
 console.log('Trying to connect to db');
 
-(async () => {
-  try {
-    await client.connect();
-    await client.db(dbName).command({ ping: 1 });
-    console.log('Connected successfully to server');
-  } catch (error) {
-    console.log('Connection failed.');
-    await client.close();
-    console.log('Connection closed.');
-  }
-})();
+try {
+  await client.connect();
+  await client.db(dbName).command({ ping: 1 });
+  console.log('Connected successfully to server');
+} catch (error) {
+  console.log('Connection failed.');
+  await client.close();
+  console.log('Connection closed.');
+}
 
 const database = client.db(dbName);
 
